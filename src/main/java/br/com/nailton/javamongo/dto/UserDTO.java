@@ -3,6 +3,7 @@ package br.com.nailton.javamongo.dto;
 import br.com.nailton.javamongo.domain.User;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 public class UserDTO implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -13,12 +14,12 @@ public class UserDTO implements Serializable {
     public UserDTO() {
 
     }
-
     public UserDTO(User obj) {
         id = obj.getId();
         name = obj.getName();
         email = obj.getEmail();
     }
+
 
     public String getId() {
         return id;
