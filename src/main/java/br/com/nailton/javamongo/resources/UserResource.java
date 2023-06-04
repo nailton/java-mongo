@@ -1,5 +1,6 @@
 package br.com.nailton.javamongo.resources;
 
+import br.com.nailton.javamongo.domain.Post;
 import br.com.nailton.javamongo.domain.User;
 import br.com.nailton.javamongo.dto.UserDTO;
 import br.com.nailton.javamongo.services.UserService;
@@ -52,5 +53,11 @@ public class UserResource {
         obj.setId(id);
         obj = service.update(obj);
         return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
     }
 }
